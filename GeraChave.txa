@@ -1,0 +1,1234 @@
+[PROCEDURE]
+NAME Main
+[COMMON]
+FROM ABC Frame
+MODIFIED '2006/03/14' ' 9:09:33'
+[PROMPTS]
+%INISaveWindow LONG  (1)
+%ButtonAction DEPEND %Control DEFAULT TIMES 13
+WHEN  ('') ('No Special Action')
+WHEN  ('?Arrange') ('No Special Action')
+WHEN  ('?Cascade') ('No Special Action')
+WHEN  ('?Copy') ('No Special Action')
+WHEN  ('?Cut') ('No Special Action')
+WHEN  ('?Exit') ('No Special Action')
+WHEN  ('?HelpOnHelp') ('No Special Action')
+WHEN  ('?HelpSearch') ('No Special Action')
+WHEN  ('?Helpindex') ('No Special Action')
+WHEN  ('?Paste') ('No Special Action')
+WHEN  ('?PrintSetup') ('No Special Action')
+WHEN  ('?Tile') ('No Special Action')
+WHEN  ('?gerachave') ('Call a Procedure')
+
+%MenuAction DEPEND %Control STRING TIMES 1
+WHEN  ('?Exit') ('No Special Action')
+
+%ClassItem UNIQUE DEFAULT  ('Default', |
+  'WindowToolbar')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('WindowManager')
+WHEN  ('WindowToolbar') ('ToolbarClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('')
+WHEN  ('WindowToolbar') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%Parameters DEFAULT  ('')
+%ReturnValue FIELD  ()
+%WindowOperationMode DEFAULT  ('Use WINDOW setting')
+%ProcedureDisableEnhanceFocus LONG  (0)
+%ProcedureUseEnterInsteadTabOverride LONG  (0)
+%WindowUseEnterInsteadTab LONG  (1)
+%ProcedureUseEnterInsteadTabExcludeListCombo LONG  (0)
+%ProcedureUseEnterInsteadTabEnableNextTabStop LONG  (0)
+%ProcedureUseEnterInsteadTabExcludeG LONG  (1)
+%WindowUseEnterInsteadTabExclude MULTI DEFAULT  ()
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('NO')
+WHEN  ('WindowToolbar') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('ThisWindow')
+WHEN  ('WindowToolbar') ('Toolbar')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (1)
+WHEN  ('WindowToolbar') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (1)
+WHEN  ('WindowToolbar') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('ADOBlob')
+WHEN  ('WindowToolbar') ('ADOBlob')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (0)
+WHEN  ('WindowToolbar') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('WindowToolbar')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('WindowToolbar')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%WindowStyles MULTI LONG  ()
+%WindowStyleFontName DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontSize DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontStyle DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontColor DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontCharSet DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStylePicture DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleOtherListboxes MULTI DEFAULT  ()
+%ProcedureAutoBindFields MULTI LONG  ()
+%ProcedureAutoBindField DEPEND %ProcedureAutoBindFields DEFAULT TIMES 0
+
+%ProcedureAutoBindFieldTPL DEPEND %ProcedureAutoBindFields DEFAULT TIMES 0
+
+%ProcedureAutoBindProcedures MULTI LONG  ()
+%ProcedureAutoBindProcedure DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindProcedureTPL DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindFieldsIgnored MULTI LONG  ()
+%ProcedureAutoBindFieldIgnored DEPEND %ProcedureAutoBindFieldsIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindProceduresIgnored MULTI LONG  ()
+%ProcedureAutoBindProcedureIgnored DEPEND %ProcedureAutoBindProceduresIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindValidToAddField LONG  (1)
+%ProcedureUserBindFields MULTI LONG  ()
+%ProcedureUserBindField DEPEND %ProcedureUserBindFields FIELD TIMES 0
+
+%ProcedureAutoBindFieldIgnore DEPEND %ProcedureAutoBindFields LONG TIMES 0
+
+%ProcedureUserBindProcedures MULTI LONG  ()
+%ProcedureUserBindProcedure DEPEND %ProcedureUserBindProcedures PROCEDURE TIMES 0
+
+%ProcedureAutoBindProcedureIgnore DEPEND %ProcedureAutoBindProcedures LONG TIMES 0
+
+%ProcedureUserBindExpressions MULTI LONG  ()
+%ProcedureUserBindExpressionName DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%ProcedureUserBindExpression DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%SplashProcedure PROCEDURE  ()
+%ButtonRunName DEPEND %Control DEFAULT TIMES 1
+WHEN  ('?gerachave') ('')
+
+%ButtonRunParameters DEPEND %Control DEFAULT TIMES 1
+WHEN  ('?gerachave') ('')
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 1
+WHEN  ('?gerachave') (W:gerachave)
+
+%ButtonThread DEPEND %Control LONG TIMES 1
+WHEN  ('?gerachave') (1)
+
+%ButtonThreadStack DEPEND %Control DEFAULT TIMES 13
+WHEN  ('') ('25000')
+WHEN  ('?Arrange') ('25000')
+WHEN  ('?Cascade') ('25000')
+WHEN  ('?Copy') ('25000')
+WHEN  ('?Cut') ('25000')
+WHEN  ('?Exit') ('25000')
+WHEN  ('?HelpOnHelp') ('25000')
+WHEN  ('?HelpSearch') ('25000')
+WHEN  ('?Helpindex') ('25000')
+WHEN  ('?Paste') ('25000')
+WHEN  ('?PrintSetup') ('25000')
+WHEN  ('?Tile') ('25000')
+WHEN  ('?gerachave') ('25000')
+
+%ButtonParameters DEPEND %Control DEFAULT TIMES 1
+WHEN  ('?gerachave') ('')
+
+%ButtonReturnValueAssignment DEPEND %Control FIELD TIMES 1
+WHEN  ('?gerachave') ()
+
+%ButtonReturnValueReferenceAssign DEPEND %Control LONG TIMES 1
+WHEN  ('?gerachave') (0)
+
+%ButtonRequest DEPEND %Control DEFAULT TIMES 13
+WHEN  ('') ('None')
+WHEN  ('?Arrange') ('None')
+WHEN  ('?Cascade') ('None')
+WHEN  ('?Copy') ('None')
+WHEN  ('?Cut') ('None')
+WHEN  ('?Exit') ('None')
+WHEN  ('?HelpOnHelp') ('None')
+WHEN  ('?HelpSearch') ('None')
+WHEN  ('?Helpindex') ('None')
+WHEN  ('?Paste') ('None')
+WHEN  ('?PrintSetup') ('None')
+WHEN  ('?Tile') ('None')
+WHEN  ('?gerachave') ('None')
+
+%ButtonThreadParameters DEPEND %Control DEFAULT TIMES 1
+WHEN  ('?gerachave') ('')
+
+%ButtonThreadReturnValueAssignment DEPEND %Control FIELD TIMES 1
+WHEN  ('?gerachave') ()
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PreLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupDuringValidate DEPEND %Control LONG TIMES 3
+WHEN  ('') (1)
+WHEN  ('?HelpOnHelp') (1)
+WHEN  ('?gerachave') (1)
+
+%LookupAssign DEPEND %Control MULTI LONG TIMES 0
+
+%MoreTarget DEPEND %LookupAssign FIELD TIMES 0
+
+%MoreField DEPEND %LookupAssign DEFAULT TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+
+%CheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedAssignVariable DEPEND %CheckedAssigns FIELD TIMES 0
+
+%CheckedAssignValue DEPEND %CheckedAssigns DEFAULT TIMES 0
+
+%CheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl DEPEND %CheckedHides DEFAULT TIMES 0
+
+%CheckedControlAction DEPEND %CheckedHides DEFAULT TIMES 3
+WHEN  ('')TIMES 0
+WHEN  ('?HelpOnHelp')TIMES 0
+WHEN  ('?gerachave')TIMES 0
+
+%CheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl1 DEPEND %CheckedEnables DEFAULT TIMES 0
+
+%CheckedControl1Action DEPEND %CheckedEnables DEFAULT TIMES 3
+WHEN  ('')TIMES 0
+WHEN  ('?HelpOnHelp')TIMES 0
+WHEN  ('?gerachave')TIMES 0
+
+%UncheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%UncheckedAssignVariable DEPEND %UncheckedAssigns FIELD TIMES 0
+
+%UncheckedAssignValue DEPEND %UncheckedAssigns DEFAULT TIMES 0
+
+%UnCheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl DEPEND %UnCheckedHides DEFAULT TIMES 0
+
+%UnCheckedControlAction DEPEND %UnCheckedHides DEFAULT TIMES 3
+WHEN  ('')TIMES 0
+WHEN  ('?HelpOnHelp')TIMES 0
+WHEN  ('?gerachave')TIMES 0
+
+%UnCheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl1 DEPEND %UnCheckedEnables DEFAULT TIMES 0
+
+%UnCheckedControl1Action DEPEND %UnCheckedEnables DEFAULT TIMES 3
+WHEN  ('')TIMES 0
+WHEN  ('?HelpOnHelp')TIMES 0
+WHEN  ('?gerachave')TIMES 0
+
+[ADDITION]
+NAME ABC DateTimeDisplay
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%DisplayDate LONG  (0)
+%DatePicture DEFAULT  ('October 31, 1959')
+%OtherDatePicture DEFAULT  ('')
+%ShowDayOfWeek LONG  (1)
+%DateDisplayLocation DEFAULT  ('Status Bar')
+%DateStatusSection DEFAULT  ('3')
+%DateControl DEFAULT  ('')
+%DisplayTime LONG  (0)
+%TimePicture DEFAULT  ('5:30PM')
+%OtherTimePicture DEFAULT  ('')
+%TimeDisplayLocation DEFAULT  ('Status Bar')
+%TimeStatusSection DEFAULT  ('4')
+%TimeControl DEFAULT  ('')
+[WINDOW]
+AppFrame APPLICATION('Application'),AT(,,310,191),STATUS(-1,80,120,45),SYSTEM,MAX,RESIZE
+       MENUBAR
+         MENU('&File'),USE(?FileMenu)
+           ITEM('P&rint Setup...'),USE(?PrintSetup),MSG('Setup Printer'),STD(STD:PrintSetup)
+           ITEM,SEPARATOR
+           ITEM('E&xit'),USE(?Exit),MSG('Exit this application'),STD(STD:Close)
+         END
+         ITEM('gera chave'),USE(?gerachave)
+         MENU('&Edit'),USE(?EditMenu)
+           ITEM('Cu&t'),USE(?Cut),MSG('Remove item to Windows Clipboard'),STD(STD:Cut)
+           ITEM('&Copy'),USE(?Copy),MSG('Copy item to Windows Clipboard'),STD(STD:Copy)
+           ITEM('&Paste'),USE(?Paste),MSG('Paste contents of Windows Clipboard'),STD(STD:Paste)
+         END
+         MENU('&Window'),MSG('Create and Arrange windows'),STD(STD:WindowList)
+           ITEM('T&ile'),USE(?Tile),MSG('Make all open windows visible'),STD(STD:TileWindow)
+           ITEM('&Cascade'),USE(?Cascade),MSG('Stack all open windows'),STD(STD:CascadeWindow)
+           ITEM('&Arrange Icons'),USE(?Arrange),MSG('Align all window icons'),STD(STD:ArrangeIcons)
+         END
+         MENU('&Help'),MSG('Windows Help')
+           ITEM('&Contents'),USE(?Helpindex),MSG('View the contents of the help file'),STD(STD:HelpIndex)
+           ITEM('&Search for Help On...'),USE(?HelpSearch),MSG('Search for help on a subject'),STD(STD:HelpSearch)
+           ITEM('&How to Use Help'),USE(?HelpOnHelp),MSG('How to use Windows Help'),STD(STD:HelpOnHelp)
+         END
+       END
+     END
+
+[PROCEDURE]
+NAME Gera_Chave
+PROTOTYPE '(long,string,string),string,C'
+[COMMON]
+DESCRIPTION 'Gera uma Chave de liberação por mais 30 dias'
+FROM ABC Source
+MODIFIED '2006/05/16' '17:20:18'
+[PROMPTS]
+%Parameters DEFAULT  ('(long p_data,string p_cnpj,string p_codigoext)')
+%GenerateOpenClose LONG  (0)
+%GenerateSaveRestore LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  ! Inicia o calculo da chave DES
+  ! As chaves de referencia são LOC:KEY e LOC:KEYMSB
+  ! A chave final sai em GLO:strRes
+
+  LOC:KEY    = 'g&A^h@34bHKldr98'
+  LOC:MKEY   = 'h5&0oVG!'
+  LOC:STR    =  P_DATA&CLIP(P_CNPJ)&CLIP(P_CODIGOEXT)
+
+!!!! PRIMEIRA PARTE DA CHAVE ##############################################################################################################################
+  LOOP PAR# = 2 TO 26 BY 2
+    LOC:STRING[PAR#/2] = LOC:STR[PAR#]
+  END
+  SUM#       = LOC:STRING[1]+LOC:STRING[2]+LOC:STRING[3]+LOC:STRING[4]+LOC:STRING[5]
+
+
+  LOC:bl1[1] = chr(SUM#)
+  LOC:bl1[2] = LOC:STRING[1]
+  LOC:bl1[3] = LOC:STRING[5]
+  LOOP I# = 4 TO 8
+    LOC:BL1[I#] = LOC:STRING[I#-3]
+  END
+
+  LOOP I# = 1 TO 8
+    LOC:LICENSA[I#] = CHR(0)
+  END
+
+  RET# = Function_Des (1,LOC:bl1,LOC:MKEY,LOC:LICENSA)
+
+  ID#     = 0
+  LOOP VOLTAS# = (LEN(CLIP(LOC:STRING))- 5) / 7 TO 0 BY -1
+
+    LOC:bl2[1] = chr(SUM#)
+    LOOP I# = 2 TO 8
+      LOC:BL2[I#] = LOC:STRING[I#+4+(ID#*7)]
+    END
+
+    LOOP I# = 1 TO 8
+      LOC:LICENSA[I#] = CHR(BXOR(Val(LOC:LICENSA[I#]),Val(LOC:bl2[I#])))
+    END
+
+    RET# = Function_Des (1,LOC:LICENSA,LOC:MKEY,LOC:LICENSA)
+
+    ID#     += 1
+    
+  END
+
+  SOBRA# = (LEN(CLIP(LOC:STRING)) - 5) % 7
+  LOC:bl3[1] = chr(SUM#)
+  IF SOBRA# > 0 THEN
+    LOOP I# = 2 TO (SOBRA#+1)
+      LOC:bl3[I#] = LOC:STRING[I#-1+(LEN(CLIP(LOC:STRING))-SOBRA#)]
+    END
+    LOC:bl3[I#] = chr(080h)
+    IF (I#) < 8 THEN
+      LOOP X# = I#+1 TO 8
+        LOC:bl3[X#] = chr(0)
+      END
+    END
+  ELSE
+    LOC:bl3[2] = chr(080h)
+    LOC:bl3[3] = chr(00h)
+    LOC:bl3[4] = chr(00h)
+    LOC:bl3[5] = chr(00h)
+    LOC:bl3[6] = chr(00h)
+    LOC:bl3[7] = chr(00h)
+    LOC:bl3[8] = chr(00h)
+  END
+
+  LOOP I# = 1 TO 8
+    LOC:LICENSA[I#] = CHR(BXOR(Val(LOC:LICENSA[I#]),Val(LOC:bl3[I#])))
+  END
+
+  RET# = Function_3Des (1,LOC:LICENSA,LOC:KEY,LOC:LICENSA)
+
+  LOOP POS# = 1 TO 8
+    LOOP
+      IF (VAL(LOC:LICENSA[POS#]) >= 48 AND VAL(LOC:LICENSA[POS#]) <= 57) OR (VAL(LOC:LICENSA[POS#]) >= 65 AND VAL(LOC:LICENSA[POS#]) <= 90) OR |
+      (VAL(LOC:LICENSA[POS#]) >= 97 AND VAL(LOC:LICENSA[POS#]) <= 122) THEN
+         BREAK
+      ELSE
+        LOC:LICENSA[POS#] = CHR(INT((VAL(LOC:LICENSA[POS#])/2)+48))
+        IF VAL(LOC:LICENSA[POS#]) >= 95 AND VAL(LOC:LICENSA[POS#]) <= 99 THEN
+          LOC:LICENSA[POS#] = CHR(VAL(LOC:LICENSA[POS#]) - 40)
+        END
+      END
+    END
+  END
+  LOC:KEY1 = LOC:LICENSA
+!!!! ######################################################################################################################################################
+
+!!!! SEGUNDA PARTE DA CHAVE ###############################################################################################################################
+  LOOP PAR# = 1 TO 25 BY 2
+    LOC:STRING[INT(PAR#/2)+1] = LOC:STR[PAR#]
+  END
+  SUM#       = LOC:STRING[1]+LOC:STRING[2]+LOC:STRING[3]+LOC:STRING[4]+LOC:STRING[5]
+
+
+  LOC:bl1[1] = chr(SUM#)
+  LOC:bl1[2] = LOC:STRING[1]
+  LOC:bl1[3] = LOC:STRING[5]
+  LOOP I# = 4 TO 8
+    LOC:BL1[I#] = LOC:STRING[I#-3]
+  END
+
+  LOOP I# = 1 TO 8
+    LOC:LICENSA[I#] = CHR(0)
+  END
+
+  RET# = Function_Des (1,LOC:bl1,LOC:MKEY,LOC:LICENSA)
+
+  ID#     = 0
+  LOOP VOLTAS# = (LEN(CLIP(LOC:STRING))- 5) / 7 TO 0 BY -1
+
+    LOC:bl2[1] = chr(SUM#)
+    LOOP I# = 2 TO 8
+      LOC:BL2[I#] = LOC:STRING[I#+4+(ID#*7)]
+    END
+
+    LOOP I# = 1 TO 8
+      LOC:LICENSA[I#] = CHR(BXOR(Val(LOC:LICENSA[I#]),Val(LOC:bl2[I#])))
+    END
+
+    RET# = Function_Des (1,LOC:LICENSA,LOC:MKEY,LOC:LICENSA)
+
+    ID#     += 1
+    
+  END
+
+  SOBRA# = (LEN(CLIP(LOC:STRING)) - 5) % 7
+  LOC:bl3[1] = chr(SUM#)
+  IF SOBRA# > 0 THEN
+    LOOP I# = 2 TO (SOBRA#+1)
+      LOC:bl3[I#] = LOC:STRING[I#-1+(LEN(CLIP(LOC:STRING))-SOBRA#)]
+    END
+    LOC:bl3[I#] = chr(080h)
+    IF (I#) < 8 THEN
+      LOOP X# = I#+1 TO 8
+        LOC:bl3[X#] = chr(0)
+      END
+    END
+  ELSE
+    LOC:bl3[2] = chr(080h)
+    LOC:bl3[3] = chr(00h)
+    LOC:bl3[4] = chr(00h)
+    LOC:bl3[5] = chr(00h)
+    LOC:bl3[6] = chr(00h)
+    LOC:bl3[7] = chr(00h)
+    LOC:bl3[8] = chr(00h)
+  END
+
+  LOOP I# = 1 TO 8
+    LOC:LICENSA[I#] = CHR(BXOR(Val(LOC:LICENSA[I#]),Val(LOC:bl3[I#])))
+  END
+
+  RET# = Function_3Des (1,LOC:LICENSA,LOC:KEY,LOC:LICENSA)
+
+  LOOP POS# = 1 TO 8
+    LOOP
+      IF (VAL(LOC:LICENSA[POS#]) >= 48 AND VAL(LOC:LICENSA[POS#]) <= 57) OR (VAL(LOC:LICENSA[POS#]) >= 65 AND VAL(LOC:LICENSA[POS#]) <= 90) OR |
+      (VAL(LOC:LICENSA[POS#]) >= 97 AND VAL(LOC:LICENSA[POS#]) <= 122) THEN
+         BREAK
+      ELSE
+        LOC:LICENSA[POS#] = CHR(INT((VAL(LOC:LICENSA[POS#])/2)+48))
+        IF VAL(LOC:LICENSA[POS#]) >= 95 AND VAL(LOC:LICENSA[POS#]) <= 99 THEN
+          LOC:LICENSA[POS#] = CHR(VAL(LOC:LICENSA[POS#]) - 40)
+        END
+      END
+    END
+  END
+  LOC:KEY2 = LOC:LICENSA
+!!!! #######################################################################################################################################################
+
+  RETURN (LOC:KEY1&LOC:KEY2)
+
+[END]
+EMBED %DataSection
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+LOC:STR                 STRING(50)
+LOC:STRING              STRING(13)
+LOC:KEY                 STRING(16)
+LOC:LICENSA             STRING(8)
+LOC:MKEY                STRING(8)
+LOC:KEY1                STRING(8)
+LOC:KEY2                STRING(8)
+LOC:BL1                 STRING(8)
+LOC:BL2                 STRING(8)
+LOC:BL3                 STRING(8)
+[END]
+[END]
+[PROCEDURE]
+NAME W:gerachave
+[COMMON]
+FROM ABC Window
+MODIFIED '2006/05/16' '17:04:20'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('loc : codigoext:'),USE(?loc:codigoext:Prompt)
+! ENTRY(@s3),USE(loc:codigoext)
+[REPORTCONTROLS]
+! STRING(@s3),USE(loc:codigoext)
+loc:codigoext            STRING(3)
+!!> IDENT(4294967295),PROMPT('loc : codigoext:'),HEADER('loc : codigoext'),PICTURE(@s3)
+[SCREENCONTROLS]
+! PROMPT('loc : cnpj:'),USE(?loc:cnpj:Prompt)
+! ENTRY(@s20),USE(loc:cnpj)
+[REPORTCONTROLS]
+! STRING(@s20),USE(loc:cnpj)
+loc:cnpj                 STRING(20)
+!!> IDENT(4294967294),PROMPT('loc : cnpj:'),HEADER('loc : cnpj'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('loc : proxvalidade:'),USE(?loc:proxvalidade:Prompt)
+! ENTRY(@d6),USE(loc:proxvalidade),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@d6),USE(loc:proxvalidade),RIGHT(1)
+loc:proxvalidade         LONG
+!!> IDENT(4294967293),PROMPT('loc : proxvalidade:'),HEADER('loc : proxvalidade'),PICTURE(@d6),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('loc : chave:'),USE(?loc:chave:Prompt)
+! ENTRY(@s16),USE(loc:chave)
+[REPORTCONTROLS]
+! STRING(@s16),USE(loc:chave)
+loc:chave                STRING(16)
+!!> IDENT(4294967292),PROMPT('loc : chave:'),HEADER('loc : chave'),PICTURE(@s16)
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default', |
+  'WindowToolbar')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('WindowManager')
+WHEN  ('WindowToolbar') ('ToolbarClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('')
+WHEN  ('WindowToolbar') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%Parameters DEFAULT  ('')
+%ReturnValue FIELD  ()
+%WindowOperationMode DEFAULT  ('Use WINDOW setting')
+%INISaveWindow LONG  (1)
+%ProcedureDisableEnhanceFocus LONG  (0)
+%ProcedureUseEnterInsteadTabOverride LONG  (0)
+%WindowUseEnterInsteadTab LONG  (1)
+%ProcedureUseEnterInsteadTabExcludeListCombo LONG  (0)
+%ProcedureUseEnterInsteadTabEnableNextTabStop LONG  (0)
+%ProcedureUseEnterInsteadTabExcludeG LONG  (1)
+%WindowUseEnterInsteadTabExclude MULTI DEFAULT  ()
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('NO')
+WHEN  ('WindowToolbar') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('ThisWindow')
+WHEN  ('WindowToolbar') ('Toolbar')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (1)
+WHEN  ('WindowToolbar') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (1)
+WHEN  ('WindowToolbar') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('ADOBlob')
+WHEN  ('WindowToolbar') ('ADOBlob')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (0)
+WHEN  ('WindowToolbar') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('WindowToolbar')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('WindowToolbar')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%WindowStyles MULTI LONG  ()
+%WindowStyleFontName DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontSize DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontStyle DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontColor DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontCharSet DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStylePicture DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleOtherListboxes MULTI DEFAULT  ()
+%ProcedureAutoBindFields MULTI LONG  ()
+%ProcedureAutoBindField DEPEND %ProcedureAutoBindFields DEFAULT TIMES 0
+
+%ProcedureAutoBindFieldTPL DEPEND %ProcedureAutoBindFields DEFAULT TIMES 0
+
+%ProcedureAutoBindProcedures MULTI LONG  ()
+%ProcedureAutoBindProcedure DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindProcedureTPL DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindFieldsIgnored MULTI LONG  ()
+%ProcedureAutoBindFieldIgnored DEPEND %ProcedureAutoBindFieldsIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindProceduresIgnored MULTI LONG  ()
+%ProcedureAutoBindProcedureIgnored DEPEND %ProcedureAutoBindProceduresIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindValidToAddField LONG  (0)
+%ProcedureUserBindFields MULTI LONG  ()
+%ProcedureUserBindField DEPEND %ProcedureUserBindFields FIELD TIMES 0
+
+%ProcedureAutoBindFieldIgnore DEPEND %ProcedureAutoBindFields LONG TIMES 0
+
+%ProcedureUserBindProcedures MULTI LONG  ()
+%ProcedureUserBindProcedure DEPEND %ProcedureUserBindProcedures PROCEDURE TIMES 0
+
+%ProcedureAutoBindProcedureIgnore DEPEND %ProcedureAutoBindProcedures LONG TIMES 0
+
+%ProcedureUserBindExpressions MULTI LONG  ()
+%ProcedureUserBindExpressionName DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%ProcedureUserBindExpression DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%ButtonAction DEPEND %Control DEFAULT TIMES 4
+WHEN  ('?CancelButton') ('No Special Action')
+WHEN  ('?OkButton') ('No Special Action')
+WHEN  ('?OkButton:2') ('No Special Action')
+WHEN  ('?loc:chave') ('No Special Action')
+
+%ButtonRunName DEPEND %Control DEFAULT TIMES 3
+WHEN  ('?CancelButton') ('')
+WHEN  ('?OkButton') ('')
+WHEN  ('?OkButton:2') ('')
+
+%ButtonRunParameters DEPEND %Control DEFAULT TIMES 3
+WHEN  ('?CancelButton') ('')
+WHEN  ('?OkButton') ('')
+WHEN  ('?OkButton:2') ('')
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 3
+WHEN  ('?CancelButton') ()
+WHEN  ('?OkButton') ()
+WHEN  ('?OkButton:2') ()
+
+%ButtonThread DEPEND %Control LONG TIMES 3
+WHEN  ('?CancelButton') (0)
+WHEN  ('?OkButton') (0)
+WHEN  ('?OkButton:2') (0)
+
+%ButtonThreadStack DEPEND %Control DEFAULT TIMES 4
+WHEN  ('?CancelButton') ('25000')
+WHEN  ('?OkButton') ('25000')
+WHEN  ('?OkButton:2') ('25000')
+WHEN  ('?loc:chave') ('25000')
+
+%ButtonParameters DEPEND %Control DEFAULT TIMES 3
+WHEN  ('?CancelButton') ('')
+WHEN  ('?OkButton') ('')
+WHEN  ('?OkButton:2') ('')
+
+%ButtonReturnValueAssignment DEPEND %Control FIELD TIMES 3
+WHEN  ('?CancelButton') ()
+WHEN  ('?OkButton') ()
+WHEN  ('?OkButton:2') ()
+
+%ButtonReturnValueReferenceAssign DEPEND %Control LONG TIMES 3
+WHEN  ('?CancelButton') (0)
+WHEN  ('?OkButton') (0)
+WHEN  ('?OkButton:2') (0)
+
+%ButtonRequest DEPEND %Control DEFAULT TIMES 4
+WHEN  ('?CancelButton') ('None')
+WHEN  ('?OkButton') ('None')
+WHEN  ('?OkButton:2') ('None')
+WHEN  ('?loc:chave') ('None')
+
+%ButtonThreadParameters DEPEND %Control DEFAULT TIMES 3
+WHEN  ('?CancelButton') ('')
+WHEN  ('?OkButton') ('')
+WHEN  ('?OkButton:2') ('')
+
+%ButtonThreadReturnValueAssignment DEPEND %Control FIELD TIMES 3
+WHEN  ('?CancelButton') ()
+WHEN  ('?OkButton') ()
+WHEN  ('?OkButton:2') ()
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PreLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupDuringValidate DEPEND %Control LONG TIMES 7
+WHEN  ('?CancelButton') (1)
+WHEN  ('?OkButton') (1)
+WHEN  ('?OkButton:2') (1)
+WHEN  ('?loc:chave') (1)
+WHEN  ('?loc:cnpj') (1)
+WHEN  ('?loc:codigoext') (1)
+WHEN  ('?loc:proxvalidade') (1)
+
+%LookupAssign DEPEND %Control MULTI LONG TIMES 0
+
+%MoreTarget DEPEND %LookupAssign FIELD TIMES 0
+
+%MoreField DEPEND %LookupAssign DEFAULT TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+
+%CheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedAssignVariable DEPEND %CheckedAssigns FIELD TIMES 0
+
+%CheckedAssignValue DEPEND %CheckedAssigns DEFAULT TIMES 0
+
+%CheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl DEPEND %CheckedHides DEFAULT TIMES 0
+
+%CheckedControlAction DEPEND %CheckedHides DEFAULT TIMES 4
+WHEN  ('?CancelButton')TIMES 0
+WHEN  ('?OkButton')TIMES 0
+WHEN  ('?OkButton:2')TIMES 0
+WHEN  ('?loc:chave')TIMES 0
+
+%CheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl1 DEPEND %CheckedEnables DEFAULT TIMES 0
+
+%CheckedControl1Action DEPEND %CheckedEnables DEFAULT TIMES 4
+WHEN  ('?CancelButton')TIMES 0
+WHEN  ('?OkButton')TIMES 0
+WHEN  ('?OkButton:2')TIMES 0
+WHEN  ('?loc:chave')TIMES 0
+
+%UncheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%UncheckedAssignVariable DEPEND %UncheckedAssigns FIELD TIMES 0
+
+%UncheckedAssignValue DEPEND %UncheckedAssigns DEFAULT TIMES 0
+
+%UnCheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl DEPEND %UnCheckedHides DEFAULT TIMES 0
+
+%UnCheckedControlAction DEPEND %UnCheckedHides DEFAULT TIMES 4
+WHEN  ('?CancelButton')TIMES 0
+WHEN  ('?OkButton')TIMES 0
+WHEN  ('?OkButton:2')TIMES 0
+WHEN  ('?loc:chave')TIMES 0
+
+%UnCheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl1 DEPEND %UnCheckedEnables DEFAULT TIMES 0
+
+%UnCheckedControl1Action DEPEND %UnCheckedEnables DEFAULT TIMES 4
+WHEN  ('?CancelButton')TIMES 0
+WHEN  ('?OkButton')TIMES 0
+WHEN  ('?OkButton:2')TIMES 0
+WHEN  ('?loc:chave')TIMES 0
+
+[EMBED]
+EMBED %ControlEventHandling
+[INSTANCES]
+WHEN '?OkButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4499
+PROPERTY:END
+  loc:chave = gera_chave(loc:proxvalidade,loc:cnpj,loc:codigoext)
+  display
+[END]
+[END]
+WHEN '?OkButton:2'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4499
+PROPERTY:END
+  loc:chave = gera_chave_tef(loc:cnpj,loc:codigoext)
+  display
+[END]
+[END]
+[END]
+[END]
+[CALLS]
+Gera_Chave
+Gera_Chave_TEF
+[WINDOW]
+Window WINDOW('Caption'),AT(,,395,224),FONT('MS Sans Serif',8,,FONT:regular),GRAY
+       PROMPT('loc : codigoext:'),AT(17,14),USE(?loc:codigoext:Prompt),#ORIG(?loc:codigoext:Prompt),#LINK(?loc:codigoext)
+       ENTRY(@s3),AT(67,13,60,10),USE(loc:codigoext),#ORIG(loc:codigoext),#LINK(?loc:codigoext:Prompt)
+       PROMPT('loc : cnpj:'),AT(19,34),USE(?loc:cnpj:Prompt),#ORIG(?loc:cnpj:Prompt),#LINK(?loc:cnpj)
+       ENTRY(@s20),AT(69,33,172,10),USE(loc:cnpj),#ORIG(loc:cnpj),#LINK(?loc:cnpj:Prompt)
+       PROMPT('loc : proxvalidade:'),AT(18,54),USE(?loc:proxvalidade:Prompt),#ORIG(?loc:proxvalidade:Prompt), |
+           #LINK(?loc:proxvalidade)
+       ENTRY(@d6),AT(86,53,60,10),USE(loc:proxvalidade),RIGHT(1),#ORIG(loc:proxvalidade),#LINK(?loc:proxvalidade:Prompt)
+       STRING(@s16),AT(21,97,235,38),USE(loc:chave),FONT(,14,,FONT:bold),#ORIG(?String1)
+       BUTTON('&Gera Chave Validade'),AT(15,73,89,14),USE(?OkButton),LEFT,DEFAULT
+       BUTTON('&Cancelar'),AT(217,73,56,14),USE(?CancelButton),LEFT,STD(STD:Close)
+       BUTTON('&Gera Chave TEF'),AT(114,73,89,14),USE(?OkButton:2),LEFT,DEFAULT,#ORIG(?OkButton)
+     END
+
+[PROCEDURE]
+NAME Gera_Chave_TEF
+PROTOTYPE '(string,string),string,C'
+[COMMON]
+DESCRIPTION 'Gera uma Chave de liberação por mais 30 dias'
+FROM ABC Source
+MODIFIED '2006/05/16' '17:23:41'
+[PROMPTS]
+%Parameters DEFAULT  ('(string p_cnpj,string p_codigoext)')
+%GenerateOpenClose LONG  (0)
+%GenerateSaveRestore LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  LOC:KEY    = 'TEFD&*g98dh^-23m'
+  LOC:MKEY   = 'l)@g6u%3'
+  LOC:STR    =  CLIP(p_cnpj)&CLIP(p_CODIGOEXT)
+
+!!!! PRIMEIRA PARTE DA CHAVE ##############################################################################################################################
+  LOOP PAR# = 2 TO 26 BY 2
+    LOC:STRING[PAR#/2] = LOC:STR[PAR#]
+  END
+  SUM#       = LOC:STRING[1]+LOC:STRING[2]+LOC:STRING[3]+LOC:STRING[4]+LOC:STRING[5]
+
+
+  LOC:bl1[1] = chr(SUM#)
+  LOC:bl1[2] = LOC:STRING[1]
+  LOC:bl1[3] = LOC:STRING[5]
+  LOOP I# = 4 TO 8
+    LOC:BL1[I#] = LOC:STRING[I#-3]
+  END
+
+  LOOP I# = 1 TO 8
+    LOC:LICENSA[I#] = CHR(0)
+  END
+
+  RET# = Function_Des (1,LOC:bl1,LOC:MKEY,LOC:LICENSA)
+
+  ID#     = 0
+  LOOP VOLTAS# = (LEN(CLIP(LOC:STRING))- 5) / 7 TO 0 BY -1
+
+    LOC:bl2[1] = chr(SUM#)
+    LOOP I# = 2 TO 8
+      LOC:BL2[I#] = LOC:STRING[I#+4+(ID#*7)]
+    END
+
+    LOOP I# = 1 TO 8
+      LOC:LICENSA[I#] = CHR(BXOR(Val(LOC:LICENSA[I#]),Val(LOC:bl2[I#])))
+    END
+
+    RET# = Function_Des (1,LOC:LICENSA,LOC:MKEY,LOC:LICENSA)
+
+    ID#     += 1
+    
+  END
+
+  SOBRA# = (LEN(CLIP(LOC:STRING)) - 5) % 7
+  LOC:bl3[1] = chr(SUM#)
+  IF SOBRA# > 0 THEN
+    LOOP I# = 2 TO (SOBRA#+1)
+      LOC:bl3[I#] = LOC:STRING[I#-1+(LEN(CLIP(LOC:STRING))-SOBRA#)]
+    END
+    LOC:bl3[I#] = chr(080h)
+    IF (I#) < 8 THEN
+      LOOP X# = I#+1 TO 8
+        LOC:bl3[X#] = chr(0)
+      END
+    END
+  ELSE
+    LOC:bl3[2] = chr(080h)
+    LOC:bl3[3] = chr(00h)
+    LOC:bl3[4] = chr(00h)
+    LOC:bl3[5] = chr(00h)
+    LOC:bl3[6] = chr(00h)
+    LOC:bl3[7] = chr(00h)
+    LOC:bl3[8] = chr(00h)
+  END
+
+  LOOP I# = 1 TO 8
+    LOC:LICENSA[I#] = CHR(BXOR(Val(LOC:LICENSA[I#]),Val(LOC:bl3[I#])))
+  END
+
+  RET# = Function_3Des (1,LOC:LICENSA,LOC:KEY,LOC:LICENSA)
+
+  LOOP POS# = 1 TO 8
+    LOOP
+      IF (VAL(LOC:LICENSA[POS#]) >= 48 AND VAL(LOC:LICENSA[POS#]) <= 57) OR (VAL(LOC:LICENSA[POS#]) >= 65 AND VAL(LOC:LICENSA[POS#]) <= 90) OR |
+      (VAL(LOC:LICENSA[POS#]) >= 97 AND VAL(LOC:LICENSA[POS#]) <= 122) THEN
+         BREAK
+      ELSE
+        LOC:LICENSA[POS#] = CHR(INT((VAL(LOC:LICENSA[POS#])/2)+48))
+        IF VAL(LOC:LICENSA[POS#]) >= 95 AND VAL(LOC:LICENSA[POS#]) <= 99 THEN
+          LOC:LICENSA[POS#] = CHR(VAL(LOC:LICENSA[POS#]) - 40)
+        END
+      END
+    END
+  END
+  LOC:KEY1 = LOC:LICENSA
+!!!! ######################################################################################################################################################
+
+!!!! SEGUNDA PARTE DA CHAVE ###############################################################################################################################
+  LOOP PAR# = 1 TO 25 BY 2
+    LOC:STRING[INT(PAR#/2)+1] = LOC:STR[PAR#]
+  END
+  SUM#       = LOC:STRING[1]+LOC:STRING[2]+LOC:STRING[3]+LOC:STRING[4]+LOC:STRING[5]
+
+
+  LOC:bl1[1] = chr(SUM#)
+  LOC:bl1[2] = LOC:STRING[1]
+  LOC:bl1[3] = LOC:STRING[5]
+  LOOP I# = 4 TO 8
+    LOC:BL1[I#] = LOC:STRING[I#-3]
+  END
+
+  LOOP I# = 1 TO 8
+    LOC:LICENSA[I#] = CHR(0)
+  END
+
+  RET# = Function_Des (1,LOC:bl1,LOC:MKEY,LOC:LICENSA)
+
+  ID#     = 0
+  LOOP VOLTAS# = (LEN(CLIP(LOC:STRING))- 5) / 7 TO 0 BY -1
+
+    LOC:bl2[1] = chr(SUM#)
+    LOOP I# = 2 TO 8
+      LOC:BL2[I#] = LOC:STRING[I#+4+(ID#*7)]
+    END
+
+    LOOP I# = 1 TO 8
+      LOC:LICENSA[I#] = CHR(BXOR(Val(LOC:LICENSA[I#]),Val(LOC:bl2[I#])))
+    END
+
+    RET# = Function_Des (1,LOC:LICENSA,LOC:MKEY,LOC:LICENSA)
+
+    ID#     += 1
+    
+  END
+
+  SOBRA# = (LEN(CLIP(LOC:STRING)) - 5) % 7
+  LOC:bl3[1] = chr(SUM#)
+  IF SOBRA# > 0 THEN
+    LOOP I# = 2 TO (SOBRA#+1)
+      LOC:bl3[I#] = LOC:STRING[I#-1+(LEN(CLIP(LOC:STRING))-SOBRA#)]
+    END
+    LOC:bl3[I#] = chr(080h)
+    IF (I#) < 8 THEN
+      LOOP X# = I#+1 TO 8
+        LOC:bl3[X#] = chr(0)
+      END
+    END
+  ELSE
+    LOC:bl3[2] = chr(080h)
+    LOC:bl3[3] = chr(00h)
+    LOC:bl3[4] = chr(00h)
+    LOC:bl3[5] = chr(00h)
+    LOC:bl3[6] = chr(00h)
+    LOC:bl3[7] = chr(00h)
+    LOC:bl3[8] = chr(00h)
+  END
+
+  LOOP I# = 1 TO 8
+    LOC:LICENSA[I#] = CHR(BXOR(Val(LOC:LICENSA[I#]),Val(LOC:bl3[I#])))
+  END
+
+  RET# = Function_3Des (1,LOC:LICENSA,LOC:KEY,LOC:LICENSA)
+
+  LOOP POS# = 1 TO 8
+    LOOP
+      IF (VAL(LOC:LICENSA[POS#]) >= 48 AND VAL(LOC:LICENSA[POS#]) <= 57) OR (VAL(LOC:LICENSA[POS#]) >= 65 AND VAL(LOC:LICENSA[POS#]) <= 90) OR |
+      (VAL(LOC:LICENSA[POS#]) >= 97 AND VAL(LOC:LICENSA[POS#]) <= 122) THEN
+         BREAK
+      ELSE
+        LOC:LICENSA[POS#] = CHR(INT((VAL(LOC:LICENSA[POS#])/2)+48))
+        IF VAL(LOC:LICENSA[POS#]) >= 95 AND VAL(LOC:LICENSA[POS#]) <= 99 THEN
+          LOC:LICENSA[POS#] = CHR(VAL(LOC:LICENSA[POS#]) - 40)
+        END
+      END
+    END
+  END
+  LOC:KEY2 = LOC:LICENSA
+!!!! #######################################################################################################################################################
+
+  return (upper(loc:key1&loc:key2))
+[END]
+EMBED %DataSection
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+LOC:STR                 STRING(50)
+LOC:STRING              STRING(13)
+LOC:KEY                 STRING(16)
+LOC:LICENSA             STRING(8)
+LOC:MKEY                STRING(8)
+LOC:KEY1                STRING(8)
+LOC:KEY2                STRING(8)
+LOC:BL1                 STRING(8)
+LOC:BL2                 STRING(8)
+LOC:BL3                 STRING(8)
+[END]
+[END]

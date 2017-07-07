@@ -1,0 +1,11 @@
+-- Dll GeraChave
+#noedit
+#system win32
+#model clarion dll
+#pragma define(maincode=>off)
+#set RELEASE = on
+#pragma debug(vid=>off)
+#pragma optimize(cpu=>386)
+#compile "GeraC002.clw"
+#pragma link("3desv02.lib")
+#link "GeraChave.dll"
